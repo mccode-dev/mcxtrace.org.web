@@ -36,9 +36,96 @@ class="mw-headline"> Recent McXtrace News </span></h2>
 <p><strong><font color="green">Migrating from McXtrace 1.x to 3.x? - <a
 href="https://github.com/mccode-dev/McCode/wiki">Use the wiki-based
 guides<a></font></strong>
+<h2>December 12th, 2025: McStas and McXtrace 3.6.1 released</h2>
+<br>McStas and McXtrace release 3.6.1 is now available.
+<br>McXtrace installation instructions are found <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McXtrace">on GitHub </a>.
+<h2>What's Changed - Main Highlights:</h2>
+<h3>Overall release focus:</h3>
+<ul>
+<li>Code quality improvements: Suppression of warnings from c-compilers and our static code analysis tool <code>cppcheck</code></li>
+<li>Continuous integration improvement: Any change in instrument/component code is tested via GitHub CI features</li>
+</ul>
+<h3>New tool features / capabilities:</h3>
+<ul>
+<li><code>mcrun/mxrun</code> simulation launch tool: (<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a>)
+<ul>
+<li>Scans can be parallelised at the "step number" level, use <code>--scan_split</code>. Contribution from <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Lomholy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Lomholy">@Lomholy</a>.</li>
+<li>If installed, <code>cppcheck</code> can be used to perform static code analysis on the generated code, use <code>-C/--c-lint?</code></li>
+<li>Improved string-handling in input parameters, e.g. in use with <code>NCrystal</code> config strings. Contribution from <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/tkittel/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/tkittel">@tkittel</a>.</li>
+</ul>
+</li>
+<li><code>mcplot/mxplot</code> simulation plot tools: (<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a>)
+<ul>
+<li>Better support for 'intermediate saves' done via <code>kill -USR2</code> or  <code>Progress_bar</code>, and plots should work on an unfinished simulation.</li>
+<li>Plotting a completed simulation with 'intermediate saves' will give you <strong>latest</strong> plot version in the 2D case and <strong>multiple, overplotted</strong> curves in the 1D case</li>
+<li>The <code>mcplot-matlab/mxplot-matlab</code> tool is back. You need to manually install either Matlab or Octave to make use of this</li>
+</ul>
+</li>
+<li><code>mcdisplay/mxdisplay</code> instrument visualisation tools: (<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a>)
+<ul>
+<li>On <code>conda</code>-based installations, the <code>mcdisplay-cad/mxdisplay-cad</code> tool includes the <code>cadquery</code> dependency. On completion of building the model, the OS is asked to handle the resulting CAD model.</li>
+<li>The <code>mcdisplay-matlab/mxdisplay-matlab</code> tool is back. You need to manually install either Matlab or Octave to make use of this</li>
+<li>For better integration with McStasScript, the <code>mcdisplay-webgl-classic/mxdisplay-webgl-classic</code> is used in such scenarios</li>
+<li>The 'newer/fancy' <code>mcdisplay-webgl/mxdisplay-webgl</code> based on <code>THREE.js</code>, <code>react</code> and other javascript requires a slightly time-consuming installation process on 1st launch. The user now gets an info box about this.</li>
+<li>The McStas-specific <code>mcdisplay-mantid</code> IDF generator tool received a bug fix for OFF geometry detectors.</li>
+</ul>
+</li>
+<li><code>mcdoc/mxdoc</code> documentation tool: (<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a>)
+<ul>
+<li>Higher quality / more complete comp/instr doc pages</li>
+</ul>
+</li>
+<li><code>mctest/mxtest</code> test tool: (<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a>)
+<ul>
+<li>Easier to use locally for component/instrument developers</li>
+</ul>
+</li>
+</ul>
+<h3>Components and instruments:</h3>
+<h4>McXtrace:</h4>
+<ul>
+<li>The <code>Fluorescence</code> components have a new flag to enhance statistics/signal from low concentration materials. Work by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/farhi/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/farhi">@farhi</a>.</li>
+</ul>
+<h4>McStas:</h4>
+<ul>
+<li>The <code>Union</code> subsystem now handles 'surface physics'  with the introduction of a system of refraction/reflection processes on geometry surfaces. Work by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/mads-bertelsen/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mads-bertelsen">@mads-bertelsen</a>.</li>
+<li>The <code>Union</code> subsystem now has a functional 3D-mesh system (<code>Union_mesh</code>) that supports CAD style geometries. (Ascii/binary STL files and OFF files are supported. - For now only those with triangular meshing.) Work by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Lomholy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Lomholy">@Lomholy</a>.</li>
+<li>As part of the overall code-quality improvement process, various aspects of the <code>Union</code> subsystem have been tested / improved / revised. Contributions by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/tkittel/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/tkittel">@tkittel</a> and <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a> in close collaboration with <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/mads-bertelsen/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/mads-bertelsen">@mads-bertelsen</a>.</li>
+<li>New ISIS-related instrument files, components and data:
+<ul>
+<li><code>ISIS_LET</code> by Ross Stewart and Rob Bewley, serves as test-instrument for <code>Commodus_I3</code> (ISIS source model - corresponds to <code>ViewModISIS</code> with a different parameter interface)</li>
+<li>Updated / larger set of input files for the ISIS moderator components</li>
+<li><code>Multilayer_sample</code> from Rob Dalgliesh was updated with <code>nrepeats</code> which allows to repeat an SLD material stack. <code>ISIS_CRISP</code> was updated to include this feature.</li>
+<li><code>TOF_PSDmonitor_toQ</code> is a new component with built-in data reduction from Rob Dalgliesh. Uses ToF to calculate Q. <code>Test_TOF_PSDmonitor_toQ</code> is a basic instrument to showcase the component.</li>
+</ul>
+</li>
+<li>Several of the basic McStas sample components received a systematic validation against analytical methods, thanks to <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Lomholy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Lomholy">@Lomholy</a> with help from KU/NBI students.</li>
+<li>As part of the overall code-quality improvement process, the whole component / instrument base got a BIG overhaul as such (<a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend">@willend</a>)</li>
+</ul>
+<h3>Platform support:</h3>
+<ul>
+<li>The Windows/<code>conda</code> platform which uses the
+  <code>MSVC</code> compiler is now <strong>fully</strong> functional
+  for all McStas code and a good part of the McXtrace code. As part of
+  this process a new header-file <code>mccode-complex-lib.h</code>
+  should be used by all code requiring complex numbers. (Implements
+  functions for e.g. <code>+-*/</code> operations across platforms -
+  MSVC does not self implement these operations...) <a
+  class="user-mention notranslate" data-hovercard-type="user"
+  data-hovercard-url="/users/willend/hovercard"
+  data-octo-click="hovercard-link-click"
+  data-octo-dimensions="link_type:self"
+  href="https://github.com/willend">@willend</a></li>
+</ul>
+
+<p>For all release details, please refer to <a href="https://github.com/mccode-dev/McCode/releases/tag/v3.6.1">the github release page for version 3.6.1</a>
+
+<p>Seasons greetings from all of McStas/McXtrace - and hope you will enjoy this new release!
+<br>Peter Willendrup
+<hr>
 <h2>June 17th, 2025: McStas and McXtrace 3.5.32 released</h2>
 <br>McStas and McXtrace release 3.5.32 is now available.
-<br>McStas installation instructions are found <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McStas">on GitHub </a>.
+<br>McXtrace installation instructions are found <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McXtrace">on GitHub </a>.
 <h2 id="what-s-changed">What&#39;s Changed</h2>
 <h3 id="common-changes-to-mcstas-and-mcxtrace">Common changes to McStas and McXtrace</h3>
 <ul>
