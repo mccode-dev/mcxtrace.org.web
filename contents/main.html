@@ -37,6 +37,88 @@ class="mw-headline"> Recent McXtrace News </span></h2>
 href="https://github.com/mccode-dev/McCode/wiki">Use the wiki-based
 guides<a></font></strong>
 <hr>
+<h2>May 22nd, 2026: McXtrace and McStas 3.7.1 released</h2>
+<h3>Installation instructions</h3>
+<ul>
+  <li>For McXtrace go to <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McXtrace">The McXtrace install page on GitHub</a>
+  <li>For McStas go to <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McStas">The McStas install page on GitHub</a>
+</ul>
+<h2>What's Changed</h2>
+<h3>Main new developments:</h3>
+<h4>Common McXtrace and McStas developments:</h4>
+<ul>
+<li>Up to 10 <code>USERVARS</code> supported with <code>Monitor_nD</code> (named <code>user0,...,user9</code>)</li>
+<li>Qt5 → Qt6 across the package and dependencies</li>
+<li>Bugfix: Fix of rare visualisation bug in <code>mcdisplay</code>/<code>mxdisplay</code> (e.g. box was not allowed as a comp name)</li>
+<li>Doc improvements:
+<ul>
+<li><code>mcdoc</code>/<code>mxdoc</code> can render <code>.tex</code> and <code>.md</code> in addition to <code>.html</code></li>
+<li>Example instruments come with an in-repo <code>README.md</code> generated via this mechanism</li>
+<li>See e.g. <a href="https://github.com/mccode-dev/McCode/tree/main/mcstas-comps/examples/BNL/BNL_H8/README.md">McStas BNL_H8</a> or <a href="https://github.com/mccode-dev/McCode/tree/main/mcxtrace-comps/examples/ESRF/ESRF_ID01/README.md">McXtrace ESRF ID01</a></li>
+</ul>
+</li>
+<li>CI/test improvements:
+<ul>
+<li><code>mcdisplay</code>/<code>mxdisplay</code> visualisation is performed as part of <code>mctest</code>/<code>mxtest</code> runs (→ CI)</li>
+<li>See top html files in <a href="https://new-nightly.mcstas.org/todays-datafiles/" rel="nofollow">McStas</a> and <a href="https://new-nightly.mcxtrace.org/todays-datafiles/" rel="nofollow">McXtrace</a> nightly test runs</li>
+</ul>
+</li>
+</ul>
+<h4>McXtrace specific developments:</h4>
+<ul>
+<li>Much improved <a href="https://github.com/mccode-dev/McCode/tree/main/mcxtrace-comps/union">Union subsystem for McXtrace</a> by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ebknudsen/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ebknudsen" aria-keyshortcuts="Alt+ArrowUp">@ebknudsen</a>. Makes use of <a href="https://github.com/tschoonj/xraylib/wiki">Xraylib</a> for Compton and Rayleigh scattering models.</li>
+<li>Test instruments for the new Union processes, both from <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/ebknudsen/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/ebknudsen" aria-keyshortcuts="Alt+ArrowUp">@ebknudsen</a>
+<ul>
+<li><a href="https://github.com/mccode-dev/McCode/blob/main/mcxtrace-comps/examples/Tests_union/PowderCompton_union/README.md">PowderCompton_union</a> - Compton scattering and powder diffraction</li>
+<li><a href="https://github.com/mccode-dev/McCode/blob/main/mcxtrace-comps/examples/Tests_union/Test_KN_Comp_Rayl_union/README.md">Test_KN_Comp_Rayl_union</a> - test instrument using Klein-Nishina, Rayleigh, or Compton<br>
+scattering processes.</li>
+</ul>
+</li>
+</ul>
+<h4>McStas specific developments:</h4>
+<ul>
+<li>Integrated support for <a href="https://github.com/KDSource/KDSource/releases/tag/v0.2.2">KDSource</a>
+<ul>
+<li>New component <code>KDSource</code></li>
+<li>For usage details, see example instrument <a href="https://github.com/mccode-dev/McCode/tree/main/mcstas-comps/examples/Tests_MCPL_etc/Test_KDSource/README.md"><code>Test_KDSource</code></a> and the <a href="https://kdsource.readthedocs.io/en/latest/" rel="nofollow">KDSource documentation website</a></li>
+<li>Available as automatic dependency on <code>conda-forge</code> based installations (including macOS and Windows 'installers'</li>
+<li>Not available as .deb package on Debian systems but may function by installing via pip. <br><strong>Recommendation</strong>: Just use <code>conda-forge</code>.</li>
+</ul>
+</li>
+<li>Pulse-length adjustment available for <code>ESS_butterfly</code>
+<ul>
+<li>Handled via specifically named instrument input parameter and <code>DEPENDENCY</code> line</li>
+<li>See example instrument <a href="https://github.com/mccode-dev/McCode/blob/main/mcstas-comps/examples/ESS/ESS_butterfly_Adjustable_Pulse/README.md"><code>ESS_butterfly_Adjustable_Pulse</code></a></li>
+</ul>
+</li>
+<li><code>PowderN</code> now supports <code>NCrystal</code> <code>cfg</code>-strings.
+<ul>
+<li>Forwards request to <code>NCrystal</code> that populates datastructures without intermediate <code>.laz/.lau</code> files</li>
+<li>See example instrument <a href="https://github.com/mccode-dev/McCode/blob/main/mcstas-comps/examples/Tests_samples/Test_Powders/README.md">Test_Powders</a> - <code>comp=0</code> mode</li>
+</ul>
+</li>
+<li>Bugfixes:
+<ul>
+<li>Fix to Union, orientation of loggers wrt. master comp</li>
+<li>Bugfixes to recently added improved Union mesh</li>
+</ul>
+</li>
+<li>Contributions from NBI/KU:
+<ul>
+<li><code>Inhomogenous_incoherent_process</code> in Union from <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/Lomholy/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/Lomholy" aria-keyshortcuts="Alt+ArrowUp">@Lomholy</a>, (via ‘tinyexpr' string-expression inputs) - see rel. <a href="https://github.com/mccode-dev/McCode/blob/main/mcstas-comps/examples/Tests_union/Test_inhomogenous_process/README.md">test instrument</a></li>
+<li>New spinwave comp <code>SpinWave_BCO</code> from <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/SSBNS/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/SSBNS" aria-keyshortcuts="Alt+ArrowUp">@SSBNS</a> - see rel. <a href="https://github.com/mccode-dev/McCode/blob/main/mcstas-comps/examples/Tests_samples/Samples_SpinWave_BCO/README.md">test instrument</a></li>
+<li><a href="https://github.com/mccode-dev/McCode/tree/main/mcstas-comps/examples/ESS/ESS_KVASIR/README.md">ESS KVASIR instrument proposal</a> - backend instrument with MCPL input from BIFROST optic. <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/AmalieFalkenberg/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/AmalieFalkenberg" aria-keyshortcuts="Alt+ArrowUp">@AmalieFalkenberg</a>.  Includes Jupyter notebook in McStasScript syntax.</li>
+</ul>
+</li>
+<li>McStas component manual uses <code>.tex</code> snippets from generated via components <code>mcdoc</code></li>
+</ul>
+<h2>New Contributors</h2>
+<ul>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/SSBNS/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/SSBNS" aria-keyshortcuts="Alt+ArrowUp">@SSBNS</a> made their first contribution in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4152093248" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2373" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2373/hovercard" href="https://github.com/mccode-dev/McCode/pull/2373" aria-keyshortcuts="Alt+ArrowUp">#2373</a></li>
+<li><a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/AmalieFalkenberg/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/AmalieFalkenberg" aria-keyshortcuts="Alt+ArrowUp">@AmalieFalkenberg</a> made their first contribution in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="3983113690" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2345" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2345/hovercard" href="https://github.com/mccode-dev/McCode/pull/2345" aria-keyshortcuts="Alt+ArrowUp">#2345</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a class="commit-link" href="https://github.com/mccode-dev/McCode/compare/v3.6.14...v3.7.1"><tt>v3.6.14...v3.7.1</tt></a></p>
+<hr>
 <h2>April 13th, 2026: McXtrace and McStas 3.6.14 released</h2>
 <h3>Installation instructions</h3>
 <ul>
