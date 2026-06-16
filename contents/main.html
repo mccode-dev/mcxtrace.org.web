@@ -37,6 +37,78 @@ class="mw-headline"> Recent McXtrace News </span></h2>
 href="https://github.com/mccode-dev/McCode/wiki">Use the wiki-based
 guides<a></font></strong>
 <hr>
+<h2>June 16th, 2026: McXttrace and McStas 3.7.1 released</h2>
+<h3>Installation:</h3>
+<p>See <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McXtrace/">McXtrace install pages on GitHub</a> for details
+<h2>What's Changed</h2>
+<h3>Common to McXtrace and McStas:</h3>
+<h4>Tools</h4>
+<ul>
+<li><code>mxgui</code>/<code>mcgui</code> list mode scanning:
+<ul>
+<li>Support mxrun -L scan mode via mxgui 'Scan steps' entry by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4630713149" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2493" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2493/hovercard" href="https://github.com/mccode-dev/McCode/pull/2493" aria-keyshortcuts="Alt+ArrowUp">#2493</a></li>
+</ul>
+</li>
+<li>Small but important improvements to <code>mxdisplay</code>/<code>mcdisplay</code>:
+<ul>
+<li><code>pyqtgraph</code> variant:
+<ul>
+<li>Restore various click/keyboard control across PyQt5/PyQt6</li>
+<li>Improvements to mxdisplay(-pyqtgraph) component list (do not underflow main window) by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4616042194" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2489" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2489/hovercard" href="https://github.com/mccode-dev/McCode/pull/2489" aria-keyshortcuts="Alt+ArrowUp">#2489</a></li>
+<li>Fix missing PyQt5-&gt;PyQt6 correction for mxdisplay-pyqtgraph by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4548506605" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2481" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2481/hovercard" href="https://github.com/mccode-dev/McCode/pull/2481" aria-keyshortcuts="Alt+ArrowUp">#2481</a></li>
+<li>Fix of another mxdisplay-pyqtgraph PyQt6 vs PyQt5 bug by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4571726590" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2485" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2485/hovercard" href="https://github.com/mccode-dev/McCode/pull/2485" aria-keyshortcuts="Alt+ArrowUp">#2485</a></li>
+</ul>
+</li>
+<li><code>matplotlib</code> variant:
+<ul>
+<li>Silence mxdisplay-matplotlib noise when pressing 'q' by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4548833994" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2483" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2483/hovercard" href="https://github.com/mccode-dev/McCode/pull/2483" aria-keyshortcuts="Alt+ArrowUp">#2483</a></li>
+</ul>
+</li>
+<li>Common, parsing-system:
+<ul>
+<li>Fix for rare bug: Add fflush(stdout) protection of DEBUG_COMPONENT (fix <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4579723548" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2486" data-hovercard-type="issue" data-hovercard-url="/mccode-dev/McCode/issues/2486/hovercard" href="https://github.com/mccode-dev/McCode/issues/2486" aria-keyshortcuts="Alt+ArrowUp">#2486</a>) by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4579963783" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2487" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2487/hovercard" href="https://github.com/mccode-dev/McCode/pull/2487" aria-keyshortcuts="Alt+ArrowUp">#2487</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Libraries</h4>
+<ul>
+<li>KDSource functional in mingw builds (+other minor improvements) by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4667378270" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2497" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2497/hovercard" href="https://github.com/mccode-dev/McCode/pull/2497" aria-keyshortcuts="Alt+ArrowUp">#2497</a> (comes with both McStas and McXtrace even though <code>KDSource.comp</code> is McStas-only for now</li>
+<li>Get rid of ‘dirent’ dependency on Windows systems
+<ul>
+<li>Dirent windows fixup by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4665108452" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2496" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2496/hovercard" href="https://github.com/mccode-dev/McCode/pull/2496" aria-keyshortcuts="Alt+ArrowUp">#2496</a></li>
+</ul>
+</li>
+</ul>
+<h4>Installers</h4>
+<ul>
+<li>New MSVC-based installer-bundle for both McStas and McXtrace, will eventually fully replace the MinGW installer-bundle
+<ul>
+<li>See <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McStas/Windows">McStas windows install page</a> for details</li>
+<li>See <a href="https://github.com/mccode-dev/McCode/tree/main/INSTALL-McXtrace/Windows">McXtrace windows install page</a> for details</li>
+</ul>
+</li>
+</ul>
+</li>
+<h3>McStas only:</h3>
+<h4>Components</h4>
+<ul>
+<li>Update <code>NMO.comp</code> by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4501914795" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2474" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2474/hovercard" href="https://github.com/mccode-dev/McCode/pull/2474" aria-keyshortcuts="Alt+ArrowUp">#2474</a></li>
+</ul>
+<h3>McXtrace only:</h3>
+<ul>
+<li>No McXtrace-specific comp/instr changes</li>
+</ul>
+<h3>Infrastructure, common to McStas/McXtrace:</h3>
+<ul>
+<li>Fixes to installdocs by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4505265187" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2476" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2476/hovercard" href="https://github.com/mccode-dev/McCode/pull/2476" aria-keyshortcuts="Alt+ArrowUp">#2476</a></li>
+<li>Various work on GitHub actions by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4614296604" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2488" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2488/hovercard" href="https://github.com/mccode-dev/McCode/pull/2488" aria-keyshortcuts="Alt+ArrowUp">#2488</a></li>
+<li>Give mctest a --displaymax handle by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4664740324" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2495" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2495/hovercard" href="https://github.com/mccode-dev/McCode/pull/2495" aria-keyshortcuts="Alt+ArrowUp">#2495</a></li>
+<li>Prepare for 3.7.6 release by <a class="user-mention notranslate" data-hovercard-type="user" data-hovercard-url="/users/willend/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/willend" aria-keyshortcuts="Alt+ArrowUp">@willend</a> in <a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="4673305883" data-permission-text="Title is private" data-url="https://github.com/mccode-dev/McCode/issues/2498" data-hovercard-type="pull_request" data-hovercard-url="/mccode-dev/McCode/pull/2498/hovercard" href="https://github.com/mccode-dev/McCode/pull/2498" aria-keyshortcuts="Alt+ArrowUp">#2498</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a class="commit-link" href="https://github.com/mccode-dev/McCode/compare/v3.7.1...v3.7.6"><tt>v3.7.1...v3.7.6</tt></a></p>
+<hr>
 <h2>May 22nd, 2026: McXtrace and McStas 3.7.1 released</h2>
 <h3>Installation instructions</h3>
 <ul>
