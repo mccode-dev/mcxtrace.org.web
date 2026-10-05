@@ -37,6 +37,53 @@ class="mw-headline"> Recent McXtrace News </span></h2>
 href="https://github.com/mccode-dev/McCode/wiki">Use the wiki-based
 guides<a></font></strong>
 <hr>
+<h2>October 5th, 2026: McStas and McXtrace 3.9.0 released</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Changes in McStas/McXtrace 3.9.0</title>
+<style>
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.5; max-width: 52em; margin: 2em auto; padding: 0 1em; color: #222; background: #fff; }
+  h1 { border-bottom: 2px solid #ddd; padding-bottom: .3em; }
+  h2 { border-bottom: 1px solid #eee; padding-bottom: .2em; margin-top: 2em; }
+  h3 { margin-top: 1.8em; }
+  h4 { margin-bottom: .3em; }
+  code { font-family: SFMono-Regular, Consolas, Menlo, monospace; font-size: .9em; background: #f3f3f3; padding: .1em .3em; border-radius: 3px; }
+  a { color: #0366d6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  li { margin: .25em 0; }
+</style>
+</head>
+<body>
+<h1>Changes in McStas/McXtrace 3.9.0</h1>
+<p><em>Covers everything since the previous "announced" release, 3.8.4.</em></p>
+<h2>Highlights</h2>
+<ul>
+<li><strong>MPI is now enabled by default</strong> when compiling instruments. Multi-core runs work out of the box, and a long-standing hang in MPI runs with empty event lists is fixed. By <a href="https://github.com/willend">@willend</a>.</li>
+<li><strong>NCrystal everywhere</strong>: NCrystal materials can now be used in Union, and <code>PowderN</code> / <code>Single_crystal</code> accept multiphase and single-crystal NCrystal materials. New components: <code>Union_NCrystal_material</code> and <code>NCrystal_filter</code>. By <a href="https://github.com/tkittel">@tkittel</a> and <a href="https://github.com/mads-bertelsen-agentic">@mads-bertelsen-agentic</a>.</li>
+<li><strong>Union framework simplified</strong>: <code>Union_init</code> and <code>Union_stop</code> are no longer needed in your instruments, the framework is now self-contained  (<a href="https://github.com/mads-bertelsen-agentic">@mads-bertelsen-agentic</a> and <a href="https://github.com/g5t">@g5t</a>). Also new: <code>Union_abs_logger_nD_scintillator</code> (<a href="https://github.com/MilanKlausz">@MilanKlausz</a>, with <a href="https://github.com/tkittel">@tkittel</a>).</li>
+<li><strong>MCViNE sample kernels in McStas</strong>: 16 sample kernels from MCViNE (S(Q), S(Q,E), phonon, SANS and more), each available both as a standalone sample component and as a Union process. Contributed by <a href="https://github.com/Fahima-Islam">@Fahima-Islam</a>.</li>
+<li><strong>New <code>Dispersion_relation</code> sample component</strong> for phonon or magnon scattering from tabulated (numerical) dispersion relations, tested against <code>Phonon_simple</code> and <code>SpinWave_BCO</code>. By Daniel Lomholt Christensen (<a href="https://github.com/lomholy-agentic">@lomholy-agentic</a>) and Kim Lefmann.</li>
+<li><strong>Full component settings in NeXus output</strong>: in NeXus output mode, every component variable is now embedded in the output file with its actual runtime setting, so each simulation fully documents how its components were configured. By <a href="https://github.com/willend">@willend</a>, with related fixes by <a href="https://github.com/tkittel">@tkittel</a>.</li>
+<li><strong>Much faster <code>mcdisplay-webgl</code></strong>: the 3D instrument viewer no longer depends on Vite/npm and now starts up much faster. By <a href="https://github.com/willend">@willend</a>.</li>
+<li><strong>Models of NeXT, the ILL neutron + X-ray imaging instrument, in both packages</strong>: <code>ILL_H521_NeXT</code> (neutron branch) in McStas and <code>ILL_NeXT_Xray</code> (X-ray branch) in McXtrace. Both were "vibe-coded" by <a href="https://github.com/willend">@willend</a> with Claude, starting from the instrument's webpage and the existing ILL information in McStas.</li>
+<li><strong>New SOLEIL beamlines for McXtrace</strong>: SIRIUS, SAMBA and PUMA, plus fixes to CRISTAL. By <a href="https://github.com/farhi">@farhi</a>, with PUMA written by Uxue Saez Fernandez.</li>
+<li><strong>Another big documentation round</strong>: refreshed manuals, new Union chapters, web versions of the manuals, and updated documentation for every component and instrument. By <a href="https://github.com/willend">@willend</a>, AI-assisted.</li>
+</ul>
+<h2>What's Changed</h2>
+<p>The full, categorised list of changes, common to McStas and McXtrace as well as specific to each, is in the <a href="https://github.com/mccode-dev/McCode/releases/tag/v3.9.0">McCode v3.9.0 release notes on GitHub</a>.</p>
+<h2>New Contributors</h2>
+<ul>
+<li><a href="https://github.com/NoeB">@NoeB</a> made their first contribution in <a href="https://github.com/mccode-dev/McCode/pull/2697">#2697</a></li>
+<li><a href="https://github.com/lomholy-agentic">@lomholy-agentic</a> made their first contribution in <a href="https://github.com/mccode-dev/McCode/pull/2694">#2694</a></li>
+<li><a href="https://github.com/apps/mccode-registrar">@mccode-registrar[bot]</a> made its first contribution in <a href="https://github.com/mccode-dev/McCode/pull/2695">#2695</a></li>
+</ul>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/mccode-dev/McCode/compare/v3.8.4...v3.9.0">https://github.com/mccode-dev/McCode/compare/v3.8.4...v3.9.0</a></p>
+</body>
+</html>
+<hr>
 <h2>September 11th, 2026: McStas and McXtrace 3.8.4 released</h2>
 
 <h3>Installation</h3>
