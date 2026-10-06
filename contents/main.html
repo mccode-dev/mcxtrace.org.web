@@ -37,6 +37,21 @@ class="mw-headline"> Recent McXtrace News </span></h2>
 href="https://github.com/mccode-dev/McCode/wiki">Use the wiki-based
 guides<a></font></strong>
 <hr>
+<h2>October 6th, 2026: McStas and McXtrace 3.9.2 bugfix released</h2>
+<h2>Changes in McStas/McXtrace 3.9.2</h2>
+<p><em>A bug-fix release covering everything since the previous "announced" release, 3.9.0, including the changes already shipped quietly in 3.9.1. For the main new features of the 3.9 series, see the <a href="https://github.com/mccode-dev/McCode/releases/tag/v3.9.0">3.9.0 release notes</a>.</em></p>
+<h3>Highlights</h3>
+<ul>
+<li><strong>OFF/PLY geometry library overhauled</strong>: polygons can now have any number of corners, and several geometry bugs are fixed: gravity with OFF samples, double hits on shared edges, and McXtrace <code>Mirror</code> in OFF mode, which did not reflect. Faces in the geometry file can now also carry their own properties. By <a href="https://github.com/willend">@willend</a>.</li>
+<li><strong><code>Guide_anyshape</code> now reads per-face coatings</strong> (<code>m</code>, <code>alpha</code>, <code>W</code>, ...) directly from the OFF/PLY file with the new <code>file_coatings=1</code> option. This replaces <code>Guide_anyshape_r</code>, which moves to the obsolete components. By <a href="https://github.com/willend">@willend</a>.</li>
+<li><strong>ESS Test Beamline (TBL) in <code>ESS_butterfly</code></strong>: selecting sector W, beamline 11 automatically switches to a TBL mode that views both cold wings of the moderator. Consolidated by <a href="https://github.com/willend">@willend</a> with Claude from the TBL team's local version.</li>
+<li><strong>Correct neutron ID and user variables in Union absorption loggers</strong>: the <code>Monitor_nD</code>-based Union loggers now record the real neutron ID and <code>user0</code>–<code>user9</code> values instead of random numbers. By <a href="https://github.com/tkittel">@tkittel</a>.</li>
+<li><strong>SasView samples combine with Union and more</strong>: instruments using a SasView sample together with <code>Union_master</code>, <code>Refractor</code> or the Bispectral mirrors now compile. By <a href="https://github.com/tkittel">@tkittel</a>.</li>
+<li><strong>McXtrace data files found again on Debian/Ubuntu package installs</strong> when instruments are run directly, without <code>mxrun</code>. By <a href="https://github.com/willend">@willend</a>.</li>
+</ul>
+<p>The full, categorised list of changes, common to McStas and McXtrace as well as specific to each, is in the <a href="https://github.com/mccode-dev/McCode/releases/tag/v3.9.2">McCode v3.9.2 release notes on GitHub</a>.</p>
+<p><strong>Full Changelog</strong>: <a href="https://github.com/mccode-dev/McCode/compare/v3.9.0...v3.9.2">https://github.com/mccode-dev/McCode/compare/v3.9.0...v3.9.2</a></p>
+<hr>
 <h2>October 5th, 2026: McStas and McXtrace 3.9.0 released</h2>
 <h2>Changes in McStas/McXtrace 3.9.0</h2>
 <p><em>Covers everything since the previous "announced" release, 3.8.4.</em></p>
